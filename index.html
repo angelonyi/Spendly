@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Expense Tracker - Dashboard</title>
+  <meta name="description" content="Personal Expense Tracker - Track expenses, manage monthly budgets in NGN, USD, GBP, and EUR with exact precision.">
+  
+  <!-- Google Fonts: DM Sans as defined in Design Tokens -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet">
+
+  <!-- Design System Tokens (Source of Truth) -->
+  <link rel="stylesheet" href="tokens.css">
+  
+  <!-- Application Styles -->
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <!-- App Container -->
+  <div class="app-layout">
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="header-inner container">
+        <div class="brand">
+          <div class="brand-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <h1 class="brand-title">Expense Tracker</h1>
+          </div>
+        </div>
+
+        <!-- Primary Action -->
+        <div class="header-controls">
+          <button id="openAddExpenseBtn" class="btn btn-primary" aria-haspopup="dialog">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>Add Expense</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="app-main container">
+      <!-- Section 1: Monthly Spending Summary (Per Currency) -->
+      <section class="dashboard-section" aria-labelledby="summaryHeading">
+        <div class="section-header">
+          <div>
+            <h2 id="summaryHeading" class="section-title">Monthly Spending</h2>
+            <p class="section-subtitle">Your spending for the selected month, separated by currency.</p>
+          </div>
+          <div class="month-selector-wrapper">
+            <label for="monthSelect" class="visually-hidden">Select Month</label>
+            <input type="month" id="monthSelect" class="month-input" aria-label="Selected reporting month">
+          </div>
+        </div>
+
+        <div class="summary-grid" id="summaryCardsGrid">
+          <!-- Populated dynamically per currency -->
+        </div>
+      </section>
+
+      <!-- Section 2: Monthly Budgets & Spending -->
+      <section class="dashboard-section" aria-labelledby="budgetHeading">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">Plan</span>
+            <h2 id="budgetHeading" class="section-title">Monthly Budgets</h2>
+          </div>
+          <button id="openSetBudgetBtn" class="btn btn-quiet" aria-haspopup="dialog">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+              <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+              <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+            </svg>
+            <span>Set Budget</span>
+          </button>
+        </div>
+
+        <div class="budget-grid" id="budgetCardsGrid">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+      <!-- Section 3: Category Breakdown -->
+      <section class="dashboard-section" aria-labelledby="categoryHeading">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">Analysis</span>
+            <h2 id="categoryHeading" class="section-title">Spending by Category</h2>
+            <p class="section-subtitle">Predefined category distribution across active currencies</p>
+          </div>
+          <div class="currency-filter-pills" id="categoryCurrencyFilter">
+            <!-- Currency selector pills -->
+          </div>
+        </div>
+
+        <div class="category-breakdown-card" id="categoryBreakdownContainer">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+      <!-- Section 4: Expense List -->
+      <section class="dashboard-section" aria-labelledby="expensesHeading">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">Records</span>
+            <h2 id="expensesHeading" class="section-title">Recorded Expenses</h2>
+            <p class="section-subtitle">All expenses for the selected calendar month</p>
+          </div>
+          <div class="list-filters">
+            <select id="currencyFilterSelect" class="form-select filter-select" aria-label="Filter expenses by currency">
+              <option value="ALL">All Currencies</option>
+              <option value="NGN">NGN (₦)</option>
+              <option value="USD">USD ($)</option>
+              <option value="GBP">GBP (£)</option>
+              <option value="EUR">EUR (€)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="expense-list-wrapper">
+          <div class="table-container">
+            <table class="expense-table" id="expenseTable">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Currency</th>
+                  <th scope="col" class="text-right">Amount</th>
+                  <th scope="col" class="text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="expenseTableBody">
+                <!-- Dynamically rendered expenses -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Empty State -->
+          <div class="empty-state hidden" id="emptyExpensesState">
+            <div class="empty-state-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <line x1="12" y1="8" x2="12" y2="16"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+              </svg>
+            </div>
+            <h3 class="empty-state-title">No expenses recorded for this month</h3>
+            <p class="empty-state-desc">Click "Add Expense" above to record your first transaction.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="container footer-inner">
+        <p>Personal Expense Tracker • Currencies: NGN, USD, GBP, EUR • Exact Decimal Precision</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal: Add / Edit Expense -->
+  <div class="modal-backdrop hidden" id="expenseModalBackdrop" role="presentation">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h2 id="modalTitle" class="modal-title">Add Expense</h2>
+        <button type="button" class="btn-close" id="closeExpenseModalBtn" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <form id="expenseForm" class="modal-form" novalidate>
+        <input type="hidden" id="expenseIdInput">
+
+        <!-- Form Error Banner -->
+        <div class="form-error-banner hidden" id="expenseFormError" role="alert"></div>
+
+        <div class="form-row">
+          <!-- Currency -->
+          <div class="form-group col-half">
+            <label for="expenseCurrency" class="form-label">Currency <span class="required">*</span></label>
+            <select id="expenseCurrency" class="form-select" required>
+              <option value="NGN">NGN (₦) - Nigerian Naira</option>
+              <option value="USD">USD ($) - US Dollar</option>
+              <option value="GBP">GBP (£) - British Pound</option>
+              <option value="EUR">EUR (€) - Euro</option>
+            </select>
+          </div>
+
+          <!-- Amount -->
+          <div class="form-group col-half">
+            <label for="expenseAmount" class="form-label">Amount <span class="required">*</span></label>
+            <input type="number" id="expenseAmount" class="form-input" step="0.01" min="0.01" max="999999999.99" placeholder="0.00" required>
+            <small class="form-hint">Max: 999,999,999.99 (2 decimal places)</small>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+          <label for="expenseDescription" class="form-label">Description <span class="required">*</span></label>
+          <input type="text" id="expenseDescription" class="form-input" maxlength="200" placeholder="e.g. Weekly grocery shopping" required>
+          <div class="form-hint-row">
+            <small class="form-hint">Required description</small>
+            <small class="char-count" id="descCharCount">0 / 200</small>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <!-- Category -->
+          <div class="form-group col-half">
+            <label for="expenseCategory" class="form-label">Category <span class="required">*</span></label>
+            <select id="expenseCategory" class="form-select" required>
+              <!-- 9 Predefined Categories from PRD -->
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+              <option value="Housing">Housing</option>
+              <option value="Bills and utilities">Bills and utilities</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Health">Health</option>
+              <option value="Education">Education</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Expense Date -->
+          <div class="form-group col-half">
+            <label for="expenseDate" class="form-label">Expense Date <span class="required">*</span></label>
+            <input type="date" id="expenseDate" class="form-input" required>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelExpenseModalBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="saveExpenseBtn">Save Expense</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Set Monthly Budget -->
+  <div class="modal-backdrop hidden" id="budgetModalBackdrop" role="presentation">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="budgetModalTitle">
+      <div class="modal-header">
+        <h2 id="budgetModalTitle" class="modal-title">Set Monthly Budget</h2>
+        <button type="button" class="btn-close" id="closeBudgetModalBtn" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <form id="budgetForm" class="modal-form" novalidate>
+        <div class="form-error-banner hidden" id="budgetFormError" role="alert"></div>
+
+        <div class="form-group">
+          <label for="budgetCurrency" class="form-label">Currency <span class="required">*</span></label>
+          <select id="budgetCurrency" class="form-select" required>
+            <option value="NGN">NGN (₦) - Nigerian Naira</option>
+            <option value="USD">USD ($) - US Dollar</option>
+            <option value="GBP">GBP (£) - British Pound</option>
+            <option value="EUR">EUR (€) - Euro</option>
+          </select>
+          <small class="form-hint">One budget allowed per currency and calendar month</small>
+        </div>
+
+        <div class="form-group">
+          <label for="budgetAmount" class="form-label">Monthly Budget Limit <span class="required">*</span></label>
+          <input type="number" id="budgetAmount" class="form-input" step="0.01" min="0.01" placeholder="e.g. 50000.00" required>
+          <small class="form-hint">Positive amount with up to 2 decimal places</small>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelBudgetModalBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="saveBudgetBtn">Save Budget</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Delete Confirmation (Mandated by PRD 6.5) -->
+  <div class="modal-backdrop hidden" id="deleteModalBackdrop" role="presentation">
+    <div class="modal-dialog modal-dialog-sm" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle">
+      <div class="modal-header">
+        <h2 id="deleteModalTitle" class="modal-title text-error">Confirm Deletion</h2>
+        <button type="button" class="btn-close" id="closeDeleteModalBtn" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p>Are you sure you want to permanently delete this expense? This action cannot be undone.</p>
+        <div class="delete-expense-preview" id="deleteExpensePreview"></div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="cancelDeleteBtn">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Permanently Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>

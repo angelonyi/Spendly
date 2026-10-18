@@ -1,0 +1,529 @@
+/**
+ * DESIGN SYSTEM TOKENS - CSS VARIABLES
+ * Generated from: design-tokens.tokens.json
+ * 
+ * COLOR ARCHITECTURE RULES:
+ * 1. PRIMITIVES (--color-primitive-*):
+ *    Base palette ramps and foundation colors.
+ *    DO NOT use directly in UI components.
+ * 
+ * 2. COLOR ROLES (--color-*):
+ *    Semantic design tokens mapped to primitives.
+ *    ALWAYS use these directly in UI components.
+ * 
+ * 3. OPACITY CHANNELS (--color-*-rgb):
+ *    Allows dynamic opacities: rgba(var(--color-primary-rgb), 0.12)
+ */
+
+:root {
+  /* ==========================================================================
+     1. PRIMITIVE COLORS (Base System Ramps - Internal Only, DO NOT use in UI)
+     ========================================================================== */
+  /* Key Colors */
+  --color-primitive-key-primary: #0044e3;
+  --color-primitive-key-primary-rgb: 0, 68, 227;
+  --color-primitive-key-secondary: #495e92;
+  --color-primitive-key-secondary-rgb: 73, 94, 146;
+  --color-primitive-key-tertiary: #8fa3ea;
+  --color-primitive-key-tertiary-rgb: 143, 163, 234;
+  --color-primitive-key-neutral: #5c5e62;
+  --color-primitive-key-neutral-rgb: 92, 94, 98;
+  --color-primitive-key-neutral-variant: #5a5d67;
+  --color-primitive-key-neutral-variant-rgb: 90, 93, 103;
+  --color-primitive-key-error: #ba1a1a;
+  --color-primitive-key-error-rgb: 186, 26, 26;
+
+  /* Palette: primary */
+  --color-primitive-primary-0: #000000;
+  --color-primitive-primary-0-rgb: 0, 0, 0;
+  --color-primitive-primary-10: #001250;
+  --color-primitive-primary-10-rgb: 0, 18, 80;
+  --color-primitive-primary-20: #002180;
+  --color-primitive-primary-20-rgb: 0, 33, 128;
+  --color-primitive-primary-30: #0032b2;
+  --color-primitive-primary-30-rgb: 0, 50, 178;
+  --color-primitive-primary-40: #0044e3;
+  --color-primitive-primary-40-rgb: 0, 68, 227;
+  --color-primitive-primary-50: #2b5ffb;
+  --color-primitive-primary-50-rgb: 43, 95, 251;
+  --color-primitive-primary-60: #5d81ff;
+  --color-primitive-primary-60-rgb: 93, 129, 255;
+  --color-primitive-primary-70: #8ca4ff;
+  --color-primitive-primary-70-rgb: 140, 164, 255;
+  --color-primitive-primary-80: #b8c4ff;
+  --color-primitive-primary-80-rgb: 184, 196, 255;
+  --color-primitive-primary-90: #dce1ff;
+  --color-primitive-primary-90-rgb: 220, 225, 255;
+  --color-primitive-primary-95: #ecefff;
+  --color-primitive-primary-95-rgb: 236, 239, 255;
+  --color-primitive-primary-98: #f4f5ff;
+  --color-primitive-primary-98-rgb: 244, 245, 255;
+  --color-primitive-primary-99: #fafaff;
+  --color-primitive-primary-99-rgb: 250, 250, 255;
+  --color-primitive-primary-100: #ffffff;
+  --color-primitive-primary-100-rgb: 255, 255, 255;
+
+  /* Palette: secondary */
+  --color-primitive-secondary-0: #000000;
+  --color-primitive-secondary-0-rgb: 0, 0, 0;
+  --color-primitive-secondary-10: #001b48;
+  --color-primitive-secondary-10-rgb: 0, 27, 72;
+  --color-primitive-secondary-20: #193060;
+  --color-primitive-secondary-20-rgb: 25, 48, 96;
+  --color-primitive-secondary-30: #314678;
+  --color-primitive-secondary-30-rgb: 49, 70, 120;
+  --color-primitive-secondary-40: #495e92;
+  --color-primitive-secondary-40-rgb: 73, 94, 146;
+  --color-primitive-secondary-50: #687998;
+  --color-primitive-secondary-50-rgb: 104, 121, 152;
+  --color-primitive-secondary-60: #8393b3;
+  --color-primitive-secondary-60-rgb: 131, 147, 179;
+  --color-primitive-secondary-70: #9daece;
+  --color-primitive-secondary-70-rgb: 157, 174, 206;
+  --color-primitive-secondary-80: #b8c6ea;
+  --color-primitive-secondary-80-rgb: 184, 198, 234;
+  --color-primitive-secondary-90: #b8c6ea;
+  --color-primitive-secondary-90-rgb: 184, 198, 234;
+  --color-primitive-secondary-95: #ebf0ff;
+  --color-primitive-secondary-95-rgb: 235, 240, 255;
+  --color-primitive-secondary-98: #f5f6ff;
+  --color-primitive-secondary-98-rgb: 245, 246, 255;
+  --color-primitive-secondary-99: #fafaff;
+  --color-primitive-secondary-99-rgb: 250, 250, 255;
+  --color-primitive-secondary-100: #ffffff;
+  --color-primitive-secondary-100-rgb: 255, 255, 255;
+
+  /* Palette: tertiary */
+  --color-primitive-tertiary-0: #000000;
+  --color-primitive-tertiary-0-rgb: 0, 0, 0;
+  --color-primitive-tertiary-10: #00164a;
+  --color-primitive-tertiary-10-rgb: 0, 22, 74;
+  --color-primitive-tertiary-20: #002465;
+  --color-primitive-tertiary-20-rgb: 0, 36, 101;
+  --color-primitive-tertiary-30: #1c3b7d;
+  --color-primitive-tertiary-30-rgb: 28, 59, 125;
+  --color-primitive-tertiary-40: #3a5497;
+  --color-primitive-tertiary-40-rgb: 58, 84, 151;
+  --color-primitive-tertiary-50: #566eb2;
+  --color-primitive-tertiary-50-rgb: 86, 110, 178;
+  --color-primitive-tertiary-60: #7289cd;
+  --color-primitive-tertiary-60-rgb: 114, 137, 205;
+  --color-primitive-tertiary-70: #8fa3ea;
+  --color-primitive-tertiary-70-rgb: 143, 163, 234;
+  --color-primitive-tertiary-80: #b2c5ff;
+  --color-primitive-tertiary-80-rgb: 178, 197, 255;
+  --color-primitive-tertiary-90: #e0e6ff;
+  --color-primitive-tertiary-90-rgb: 224, 230, 255;
+  --color-primitive-tertiary-95: #edf0ff;
+  --color-primitive-tertiary-95-rgb: 237, 240, 255;
+  --color-primitive-tertiary-98: #f5f6ff;
+  --color-primitive-tertiary-98-rgb: 245, 246, 255;
+  --color-primitive-tertiary-99: #fafaff;
+  --color-primitive-tertiary-99-rgb: 250, 250, 255;
+  --color-primitive-tertiary-100: #ffffff;
+  --color-primitive-tertiary-100-rgb: 255, 255, 255;
+
+  /* Palette: neutral */
+  --color-primitive-neutral-0: #000000;
+  --color-primitive-neutral-0-rgb: 0, 0, 0;
+  --color-primitive-neutral-10: #191c20;
+  --color-primitive-neutral-10-rgb: 25, 28, 32;
+  --color-primitive-neutral-20: #2e3034;
+  --color-primitive-neutral-20-rgb: 46, 48, 52;
+  --color-primitive-neutral-30: #44474b;
+  --color-primitive-neutral-30-rgb: 68, 71, 75;
+  --color-primitive-neutral-40: #5c5e62;
+  --color-primitive-neutral-40-rgb: 92, 94, 98;
+  --color-primitive-neutral-50: #76777d;
+  --color-primitive-neutral-50-rgb: 118, 119, 125;
+  --color-primitive-neutral-60: #76777d;
+  --color-primitive-neutral-60-rgb: 118, 119, 125;
+  --color-primitive-neutral-70: #909097;
+  --color-primitive-neutral-70-rgb: 144, 144, 151;
+  --color-primitive-neutral-80: #ababb2;
+  --color-primitive-neutral-80-rgb: 171, 171, 178;
+  --color-primitive-neutral-90: #c6c6cd;
+  --color-primitive-neutral-90-rgb: 198, 198, 205;
+  --color-primitive-neutral-95: #e2e2e9;
+  --color-primitive-neutral-95-rgb: 226, 226, 233;
+  --color-primitive-neutral-98: #f3f3fa;
+  --color-primitive-neutral-98-rgb: 243, 243, 250;
+  --color-primitive-neutral-99: #f9f9ff;
+  --color-primitive-neutral-99-rgb: 249, 249, 255;
+  --color-primitive-neutral-100: #ffffff;
+  --color-primitive-neutral-100-rgb: 255, 255, 255;
+
+  /* Palette: neutral variant */
+  --color-primitive-neutral-variant-0: #000000;
+  --color-primitive-neutral-variant-0-rgb: 0, 0, 0;
+  --color-primitive-neutral-variant-10: #171b23;
+  --color-primitive-neutral-variant-10-rgb: 23, 27, 35;
+  --color-primitive-neutral-variant-20: #2c2f38;
+  --color-primitive-neutral-variant-20-rgb: 44, 47, 56;
+  --color-primitive-neutral-variant-30: #434650;
+  --color-primitive-neutral-variant-30-rgb: 67, 70, 80;
+  --color-primitive-neutral-variant-40: #5a5d67;
+  --color-primitive-neutral-variant-40-rgb: 90, 93, 103;
+  --color-primitive-neutral-variant-50: #737780;
+  --color-primitive-neutral-variant-50-rgb: 115, 119, 128;
+  --color-primitive-neutral-variant-60: #8e909a;
+  --color-primitive-neutral-variant-60-rgb: 142, 144, 154;
+  --color-primitive-neutral-variant-70: #a8abb4;
+  --color-primitive-neutral-variant-70-rgb: 168, 171, 180;
+  --color-primitive-neutral-variant-80: #c4c6d0;
+  --color-primitive-neutral-variant-80-rgb: 196, 198, 208;
+  --color-primitive-neutral-variant-90: #e0e2ec;
+  --color-primitive-neutral-variant-90-rgb: 224, 226, 236;
+  --color-primitive-neutral-variant-95: #eaeaf4;
+  --color-primitive-neutral-variant-95-rgb: 234, 234, 244;
+  --color-primitive-neutral-variant-98: #f4f4fd;
+  --color-primitive-neutral-variant-98-rgb: 244, 244, 253;
+  --color-primitive-neutral-variant-99: #fafaff;
+  --color-primitive-neutral-variant-99-rgb: 250, 250, 255;
+  --color-primitive-neutral-variant-100: #ffffff;
+  --color-primitive-neutral-variant-100-rgb: 255, 255, 255;
+
+  /* Palette: error */
+  --color-primitive-error-0: #000000;
+  --color-primitive-error-0-rgb: 0, 0, 0;
+  --color-primitive-error-10: #410002;
+  --color-primitive-error-10-rgb: 65, 0, 2;
+  --color-primitive-error-20: #680003;
+  --color-primitive-error-20-rgb: 104, 0, 3;
+  --color-primitive-error-30: #93000a;
+  --color-primitive-error-30-rgb: 147, 0, 10;
+  --color-primitive-error-40: #ba1a1a;
+  --color-primitive-error-40-rgb: 186, 26, 26;
+  --color-primitive-error-50: #c0312b;
+  --color-primitive-error-50-rgb: 192, 49, 43;
+  --color-primitive-error-60: #e5534b;
+  --color-primitive-error-60-rgb: 229, 83, 75;
+  --color-primitive-error-70: #ff897d;
+  --color-primitive-error-70-rgb: 255, 137, 125;
+  --color-primitive-error-80: #ffb4ab;
+  --color-primitive-error-80-rgb: 255, 180, 171;
+  --color-primitive-error-90: #ffdad6;
+  --color-primitive-error-90-rgb: 255, 218, 214;
+  --color-primitive-error-95: #ffedea;
+  --color-primitive-error-95-rgb: 255, 237, 234;
+  --color-primitive-error-98: #fff8f7;
+  --color-primitive-error-98-rgb: 255, 248, 247;
+  --color-primitive-error-99: #fffbfb;
+  --color-primitive-error-99-rgb: 255, 251, 251;
+  --color-primitive-error-100: #ffffff;
+  --color-primitive-error-100-rgb: 255, 255, 255;
+
+  /* Extended Neutral Palette */
+  --color-primitive-neutral-extended-0: #000000;
+  --color-primitive-neutral-extended-0-rgb: 0, 0, 0;
+  --color-primitive-neutral-extended-10: #191c20;
+  --color-primitive-neutral-extended-10-rgb: 25, 28, 32;
+  --color-primitive-neutral-extended-20: #2e3034;
+  --color-primitive-neutral-extended-20-rgb: 46, 48, 52;
+  --color-primitive-neutral-extended-30: #44474b;
+  --color-primitive-neutral-extended-30-rgb: 68, 71, 75;
+  --color-primitive-neutral-extended-40: #44474b;
+  --color-primitive-neutral-extended-40-rgb: 68, 71, 75;
+  --color-primitive-neutral-extended-50: #ffffff;
+  --color-primitive-neutral-extended-50-rgb: 255, 255, 255;
+  --color-primitive-neutral-extended-60: #ffffff;
+  --color-primitive-neutral-extended-60-rgb: 255, 255, 255;
+  --color-primitive-neutral-extended-70: #ffffff;
+  --color-primitive-neutral-extended-70-rgb: 255, 255, 255;
+  --color-primitive-neutral-extended-80: #ffffff;
+  --color-primitive-neutral-extended-80-rgb: 255, 255, 255;
+  --color-primitive-neutral-extended-90: #ffffff;
+  --color-primitive-neutral-extended-90-rgb: 255, 255, 255;
+  --color-primitive-neutral-extended-95: #ffffff;
+  --color-primitive-neutral-extended-95-rgb: 255, 255, 255;
+  --color-primitive-neutral-extended-98: #ffffff;
+  --color-primitive-neutral-extended-98-rgb: 255, 255, 255;
+  --color-primitive-neutral-extended-99: #ffffff;
+  --color-primitive-neutral-extended-99-rgb: 255, 255, 255;
+  --color-primitive-neutral-extended-100: #ffffff;
+  --color-primitive-neutral-extended-100-rgb: 255, 255, 255;
+
+  /* ==========================================================================
+     2. COLOR ROLES (Semantic Tokens - ALWAYS USE THESE IN UI COMPONENTS)
+     ========================================================================== */
+  --color-primary: var(--color-primitive-primary-40);
+  --color-primary-rgb: var(--color-primitive-primary-40-rgb);
+  --color-on-primary: var(--color-primitive-primary-100);
+  --color-on-primary-rgb: var(--color-primitive-primary-100-rgb);
+  --color-primary-container: var(--color-primitive-primary-95);
+  --color-primary-container-rgb: var(--color-primitive-primary-95-rgb);
+  --color-on-primary-container: var(--color-primitive-primary-30);
+  --color-on-primary-container-rgb: var(--color-primitive-primary-30-rgb);
+  --color-secondary: var(--color-primitive-secondary-40);
+  --color-secondary-rgb: var(--color-primitive-secondary-40-rgb);
+  --color-on-secondary: var(--color-primitive-secondary-100);
+  --color-on-secondary-rgb: var(--color-primitive-secondary-100-rgb);
+  --color-secondary-container: var(--color-primitive-secondary-90);
+  --color-secondary-container-rgb: var(--color-primitive-secondary-90-rgb);
+  --color-on-secondary-container: var(--color-primitive-secondary-30);
+  --color-on-secondary-container-rgb: var(--color-primitive-secondary-30-rgb);
+  --color-tertiary: var(--color-primitive-tertiary-40);
+  --color-tertiary-rgb: var(--color-primitive-tertiary-40-rgb);
+  --color-on-tertiary: var(--color-primitive-tertiary-100);
+  --color-on-tertiary-rgb: var(--color-primitive-tertiary-100-rgb);
+  --color-tertiary-container: var(--color-primitive-tertiary-90);
+  --color-tertiary-container-rgb: var(--color-primitive-tertiary-90-rgb);
+  --color-on-tertiary-container: var(--color-primitive-tertiary-30);
+  --color-on-tertiary-container-rgb: var(--color-primitive-tertiary-30-rgb);
+  --color-on-error: var(--color-primitive-error-100);
+  --color-on-error-rgb: var(--color-primitive-error-100-rgb);
+  --color-error-container: var(--color-primitive-error-90);
+  --color-error-container-rgb: var(--color-primitive-error-90-rgb);
+  --color-on-error-container: var(--color-primitive-error-30);
+  --color-on-error-container-rgb: var(--color-primitive-error-30-rgb);
+  --color-error: var(--color-primitive-error-40);
+  --color-error-rgb: var(--color-primitive-error-40-rgb);
+  --color-surface: var(--color-primitive-neutral-98);
+  --color-surface-rgb: var(--color-primitive-neutral-98-rgb);
+  --color-on-surface: var(--color-primitive-neutral-10);
+  --color-on-surface-rgb: var(--color-primitive-neutral-10-rgb);
+  --color-surface-variant: var(--color-primitive-neutral-variant-90);
+  --color-surface-variant-rgb: var(--color-primitive-neutral-variant-90-rgb);
+  --color-on-surface-variant: var(--color-primitive-neutral-variant-30);
+  --color-on-surface-variant-rgb: var(--color-primitive-neutral-variant-30-rgb);
+  --color-surface-container-highest: var(--color-primitive-neutral-90);
+  --color-surface-container-highest-rgb: var(--color-primitive-neutral-90-rgb);
+  --color-surface-container-high: var(--color-primitive-neutral-95);
+  --color-surface-container-high-rgb: var(--color-primitive-neutral-95-rgb);
+  --color-surface-container-low: #ffffff;
+  --color-surface-container-low-rgb: 255, 255, 255;
+  --color-surface-container: #ffffff;
+  --color-surface-container-rgb: 255, 255, 255;
+  --color-inverse-surface: #ffffff;
+  --color-inverse-surface-rgb: 255, 255, 255;
+  --color-inverse-on-surface: #ffffff;
+  --color-inverse-on-surface-rgb: 255, 255, 255;
+  --color-color: #ffffff;
+  --color-color-rgb: 255, 255, 255;
+
+  /* ==========================================================================
+     3. ELEVATION & SHADOW EFFECTS
+     ========================================================================== */
+  --effect-shadow-soft: 1.5px 6px 30px 0px #0044e3;
+  --effect-shadow-medium: 4px 6px 24px 0px #0044e3;
+  --effect-shadow-hard: 6px 10px 20px 0px #0044e3;
+
+  /* ==========================================================================
+     4. TYPOGRAPHY TOKENS
+     ========================================================================== */
+  --font-family-base: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* Typography: display large */
+  --type-display-large-font-size: 64px;
+  --type-display-large-line-height: 96px;
+  --type-display-large-font-weight: 600;
+  --type-display-large-letter-spacing: -3.5px;
+
+  /* Typography: display medium */
+  --type-display-medium-font-size: 48px;
+  --type-display-medium-line-height: 75px;
+  --type-display-medium-font-weight: 600;
+  --type-display-medium-letter-spacing: -3px;
+
+  /* Typography: display small */
+  --type-display-small-font-size: 40px;
+  --type-display-small-line-height: 60px;
+  --type-display-small-font-weight: 600;
+  --type-display-small-letter-spacing: -2px;
+
+  /* Typography: headline large */
+  --type-headline-large-font-size: 32px;
+  --type-headline-large-line-height: 48px;
+  --type-headline-large-font-weight: 500;
+  --type-headline-large-letter-spacing: -1.8px;
+
+  /* Typography: headline medium */
+  --type-headline-medium-font-size: 28px;
+  --type-headline-medium-line-height: 42px;
+  --type-headline-medium-font-weight: 500;
+  --type-headline-medium-letter-spacing: -1.75px;
+
+  /* Typography: headline small */
+  --type-headline-small-font-size: 28px;
+  --type-headline-small-line-height: 42px;
+  --type-headline-small-font-weight: 500;
+  --type-headline-small-letter-spacing: -1.2px;
+
+  /* Typography: title large */
+  --type-title-large-font-size: 22px;
+  --type-title-large-line-height: 33px;
+  --type-title-large-font-weight: 500;
+  --type-title-large-letter-spacing: -1px;
+
+  /* Typography: title medium */
+  --type-title-medium-font-size: 16px;
+  --type-title-medium-line-height: 24px;
+  --type-title-medium-font-weight: 500;
+  --type-title-medium-letter-spacing: -1px;
+
+  /* Typography: title small */
+  --type-title-small-font-size: 14px;
+  --type-title-small-line-height: 21px;
+  --type-title-small-font-weight: 500;
+  --type-title-small-letter-spacing: -0.95px;
+
+  /* Typography: body large */
+  --type-body-large-font-size: 16px;
+  --type-body-large-line-height: 24px;
+  --type-body-large-font-weight: 500;
+  --type-body-large-letter-spacing: -0.95px;
+
+  /* Typography: body medium */
+  --type-body-medium-font-size: 14px;
+  --type-body-medium-line-height: 21px;
+  --type-body-medium-font-weight: 500;
+  --type-body-medium-letter-spacing: -0.85px;
+
+  /* Typography: body small */
+  --type-body-small-font-size: 12px;
+  --type-body-small-line-height: 18px;
+  --type-body-small-font-weight: 500;
+  --type-body-small-letter-spacing: -0.4px;
+
+  /* Typography: label large */
+  --type-label-large-font-size: 14px;
+  --type-label-large-line-height: 21px;
+  --type-label-large-font-weight: 500;
+  --type-label-large-letter-spacing: -0.85px;
+
+  /* Typography: label medium */
+  --type-label-medium-font-size: 12px;
+  --type-label-medium-line-height: 18px;
+  --type-label-medium-font-weight: 500;
+  --type-label-medium-letter-spacing: -0.85px;
+
+  /* Typography: label small */
+  --type-label-small-font-size: 11px;
+  --type-label-small-line-height: 16.5px;
+  --type-label-small-font-weight: 500;
+  --type-label-small-letter-spacing: -0.4px;
+
+}
+
+/* ==========================================================================
+   5. TYPOGRAPHY UTILITY CLASSES
+   ========================================================================== */
+.type-display-large {
+  font-family: var(--font-family-base);
+  font-size: 64px;
+  line-height: 96px;
+  font-weight: 600;
+  letter-spacing: -3.5px;
+}
+
+.type-display-medium {
+  font-family: var(--font-family-base);
+  font-size: 48px;
+  line-height: 75px;
+  font-weight: 600;
+  letter-spacing: -3px;
+}
+
+.type-display-small {
+  font-family: var(--font-family-base);
+  font-size: 40px;
+  line-height: 60px;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+
+.type-headline-large {
+  font-family: var(--font-family-base);
+  font-size: 32px;
+  line-height: 48px;
+  font-weight: 500;
+  letter-spacing: -1.8px;
+}
+
+.type-headline-medium {
+  font-family: var(--font-family-base);
+  font-size: 28px;
+  line-height: 42px;
+  font-weight: 500;
+  letter-spacing: -1.75px;
+}
+
+.type-headline-small {
+  font-family: var(--font-family-base);
+  font-size: 28px;
+  line-height: 42px;
+  font-weight: 500;
+  letter-spacing: -1.2px;
+}
+
+.type-title-large {
+  font-family: var(--font-family-base);
+  font-size: 22px;
+  line-height: 33px;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+.type-title-medium {
+  font-family: var(--font-family-base);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+.type-title-small {
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+  letter-spacing: -0.95px;
+}
+
+.type-body-large {
+  font-family: var(--font-family-base);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -0.95px;
+}
+
+.type-body-medium {
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+  letter-spacing: -0.85px;
+}
+
+.type-body-small {
+  font-family: var(--font-family-base);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+}
+
+.type-label-large {
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+  letter-spacing: -0.85px;
+}
+
+.type-label-medium {
+  font-family: var(--font-family-base);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  letter-spacing: -0.85px;
+}
+
+.type-label-small {
+  font-family: var(--font-family-base);
+  font-size: 11px;
+  line-height: 16.5px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+}
