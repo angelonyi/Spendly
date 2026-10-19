@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Personal Expense Tracker - Dashboard',
+  title: 'Spendly - Dashboard',
   description: 'Track expenses and manage monthly budgets in NGN, USD, GBP, and EUR with exact precision.',
 };
 
